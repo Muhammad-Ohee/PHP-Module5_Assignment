@@ -32,3 +32,10 @@ Please create a PHP script that implements user authentication and role manageme
 How to work with data : 
 1. Use  Session storage or Cookies 
 2. Use File read,write,delete,append system using php
+
+<b>Project Final Sloution Preview Video</b>
+
+
+https://github.com/Muhammad-Ohee/PHP-Module5_Assignment/assets/87231565/5c5667e2-cbbe-4077-bec0-5a0534c880b2
+
+
