@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-if(isset($_SESSION['email'])){
-    header('Location: users.php');
-}
+// if(isset($_SESSION['email'])){
+//     header('Location: users.php');
+// }
 
 
 $usersFile = 'users.json';
@@ -12,10 +12,8 @@ $users = json_decode( file_get_contents( $usersFile ), true );
 
 // Registration Form Handling
 if ( isset( $_POST['login'] ) ) {
-    //$username = $_POST['username'];
     $email    = $_POST['email'];
     $password = $_POST['password'];
-    //$role = $_POST['role'];
 
     //Set Cookie
     $cookie_data = [
@@ -46,7 +44,7 @@ if ( isset( $_POST['login'] ) ) {
                 $_SESSION['username'] = $users[$email]['username'];
                 $_SESSION['password'] = $loginpassword;
                 $_SESSION['role'] = 'user';
-                header( 'Location: users.php' );
+                header( 'Location: index.php' );
             }
         } else {
             $errorMsg = "Worng Email or Password.";
@@ -72,7 +70,7 @@ if ( isset( $_POST['login'] ) ) {
         <div class="container">
             <div class="row mt-5">
                 <div class="col-md-8 mx-auto">
-                    <h3 class="text-center mb-4">Log in as User</h3>
+                    <h3 class="text-center mb-4">Log In</h3>
                     <div class="card shadow-sm">
                         <div class="card-header d-flex justify-content-between">
                             <h3>User Login</h3>

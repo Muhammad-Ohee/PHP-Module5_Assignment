@@ -2,15 +2,14 @@
 
 session_start();
 
-$users = json_decode( file_get_contents( 'users.json' ), true );           
 
-if (isset($_POST['update_role'])) {
+$users = json_decode( file_get_contents( 'users.json' ), true );            
+
+if (isset($_POST['delete'])) {
     $selected_user_email = $_POST['selected_user']; // Get the selected user's email
-    $new_role = $_POST['new_role']; // Get the new role from the select
 
-
-    if (isset($users[$selected_user_email])) {
-        $users[$selected_user_email]['role'] = $new_role;
+    if (array_key_exists($selected_user_email, $users)) {
+        unset($users[$selected_user_email]);
         file_put_contents('users.json', json_encode($users, JSON_PRETTY_PRINT));
     }
 }
@@ -37,7 +36,7 @@ if (isset($_POST['update_role'])) {
             <div class="col-md-8 mx-auto">
                 <div class="card shadow-sm">
                     <div class="card-header d-flex justify-content-between">
-                        <h3>Update Role</h3>
+                        <h3>Delete Member</h3>
                     </div>
                     <div class="card-body">
                     <form class="form" method="POST">
@@ -52,15 +51,7 @@ if (isset($_POST['update_role'])) {
                         </select>
 
                         <br>
-                        <label for="users" class="mb-2">Choose a role:</label>
-                        <br>
-                        <select id="roles" class="mb-4" name="new_role"> <!-- Add name attribute for the select -->
-                            <option value="admin">Admin</option>
-                            <option value="user">User</option>
-                        </select>
-
-                        <br>
-                        <input class="btn btn-primary" type="submit" name="update_role" value="Update">
+                        <input class="btn btn-primary" type="submit" name="delete" value="Delete">
 
                         <a class="btn btn-primary" href="admin.php"> Back </a>
                     </form>
