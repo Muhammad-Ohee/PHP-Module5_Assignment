@@ -16,7 +16,7 @@ if ( isset( $_POST['register'] ) ) {
     $email    = $_POST['email'];
     $password = $_POST['password'];
 
-    //Set Cookie
+    //Set Cookie with hasing password
     $cookie_data = [
         'username' => $username,
         'email'  => $email,
@@ -41,7 +41,6 @@ if ( isset( $_POST['register'] ) ) {
             ];
 
             saveUsers( $users, $usersFile );
-            //$_SESSION['email'] = $email;
             header( 'Location: login.php' );
         }
     }
@@ -58,6 +57,9 @@ if ( isset( $_POST['register'] ) ) {
 
     <head>
         <title>User Registration</title>
+        <style>
+            <?php include "assets/css/registration.css" ?>
+        </style>
         <?php
             include 'bootstrap.php';
         ?>
@@ -71,9 +73,7 @@ if ( isset( $_POST['register'] ) ) {
                     <div class="card shadow-sm">
                         <div class="card-header d-flex justify-content-between">
                             <h3>User Registration</h3>
-                            <a href="login.php" class="btn btn-info text-white">
-                                Already have an account?
-                            </a>
+                            
                         </div>
                         <div class="card-body">
                             <?php
@@ -87,6 +87,10 @@ if ( isset( $_POST['register'] ) ) {
                                 <input class="form-control" type="password" name="password" placeholder="Password"><br>
                                 <input type="hidden" name="role" value="">
                                 <input class="btn btn-primary" type="submit" name="register" value="Register">
+                                <a href="login.php" class="btn btn-info text-white">
+                                Already have an account?
+                                </a>
+                                <a class="btn btn-primary" href="login.php"> Back </a>
                             </form>
                         </div>
                     </div>

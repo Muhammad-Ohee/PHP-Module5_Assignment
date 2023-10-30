@@ -14,6 +14,15 @@ if (isset($_POST['delete'])) {
     }
 }
 
+if (isset($_POST['delete_role'])) {
+    $selected_user_email = $_POST['selected_user']; // Get the selected user's email
+
+    if (array_key_exists($selected_user_email, $users)) {
+        $users[$selected_user_email]['role'] = '';
+        file_put_contents('users.json', json_encode($users, JSON_PRETTY_PRINT));
+    }
+}
+
 
 ?>
 
@@ -24,7 +33,10 @@ if (isset($_POST['delete'])) {
 <html>
 
 <head>
-    <title>User Registration and Login</title>
+    <title>User Delete</title>
+    <style>
+        <?php include "assets/css/delete.css" ?>
+    </style>
     <?php
         include 'bootstrap.php';
     ?>
@@ -52,6 +64,7 @@ if (isset($_POST['delete'])) {
 
                         <br>
                         <input class="btn btn-primary" type="submit" name="delete" value="Delete">
+                        <input class="btn btn-primary" type="submit" name="delete_role" value="Delete Role">
 
                         <a class="btn btn-primary" href="admin.php"> Back </a>
                     </form>

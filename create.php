@@ -45,7 +45,11 @@ if (isset($_POST['create_user'])) {
 <html>
 
 <head>
-    <title>User Registration and Login</title>
+    <title>User Creation</title>
+    <style>
+        <?php include "assets/css/create.css" ?>
+    </style>
+
     <?php
         include 'bootstrap.php';
     ?>

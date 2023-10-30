@@ -25,7 +25,10 @@ if (isset($_POST['update_role'])) {
 <html>
 
 <head>
-    <title>User Registration and Login</title>
+    <title>User Update</title>
+    <style>
+        <?php include "assets/css/update.css" ?>
+    </style>
     <?php
         include 'bootstrap.php';
     ?>

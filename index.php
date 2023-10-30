@@ -57,9 +57,6 @@ if(!isset($_SESSION['email'])){
     </head>
 	
 	<body>
-		<!--[if lte IE 9]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-        <![endif]-->
 		
 		<!-- top-area Start -->
 		<header class="top-area">
@@ -94,7 +91,7 @@ if(!isset($_SESSION['email'])){
 				<div class="row">
 					<div class="col-md-12 text-center">
 						<div class="header-text">
-							<h2>hi <span>,</span> i am <br> <?php $_SESSION['username'] ?> <span>.</span>   </h2>
+							<h2>hi <span>,</span> i am <br> <?php echo $_SESSION['username']; ?> <span>.</span>   </h2>
 							<p>ui/ux designer and web developer</p>
 							<a href="logout.php">Log Out</a>
 						</div><!--/.header-text-->

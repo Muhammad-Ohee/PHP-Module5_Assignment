@@ -10,7 +10,7 @@ if ( isset( $_POST['login'] ) ) {
     $email    = $_POST['email'];
     $password = $_POST['password'];
 
-    //Set Cookie
+    //Set Cookie with hasing password
     $cookie_data = [
         'email'  => $email,
         'password'  => md5($password),
@@ -41,9 +41,9 @@ if ( isset( $_POST['login'] ) ) {
                 $_SESSION['role'] = 'user';
                 header( 'Location: index.php' );
             }
-        } else {
-            $errorMsg = "Worng Email or Password.";
         }
+    } else {
+        $errorMsg = "Worng Email or Password.";
     }
 
 }
@@ -56,22 +56,25 @@ if ( isset( $_POST['login'] ) ) {
 
     <head>
         <title>Login</title>
+
+        <style>
+            <?php include "assets/css/login.css" ?>
+        </style>
         <?php
             include 'bootstrap.php';
         ?>
+
+
     </head>
 
     <body>
         <div class="container">
             <div class="row mt-5">
                 <div class="col-md-8 mx-auto">
-                    <h3 class="text-center mb-4">Log In</h3>
+                    <h3 class="text-center mb-4 text-white">Log In</h3>
                     <div class="card shadow-sm">
                         <div class="card-header d-flex justify-content-between">
                             <h3>User Login</h3>
-                            <a href="registration.php" class="btn btn-info text-white">
-                                Don't have an account?
-                            </a>
                         </div>
                         <div class="card-body">
                             <?php
@@ -83,6 +86,9 @@ if ( isset( $_POST['login'] ) ) {
                                 <input class="form-control" type="email" name="email" placeholder="Email"><br>
                                 <input class="form-control" type="password" name="password" placeholder="Password"><br>
                                 <input class="btn btn-primary" type="submit" name="login" value="Login">
+                                <a href="registration.php" class="btn btn-info text-white">
+                                Don't have an account?
+                                </a>
                             </form>
                         </div>
                     </div>
