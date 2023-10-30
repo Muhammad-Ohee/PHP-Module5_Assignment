@@ -1,0 +1,17 @@
+{
+    "angle@angle.com": {
+        "username": "Angle",
+        "password": "1234",
+        "role": "admin"
+    },
+    "ohee@ohee.com": {
+        "username": "Ohee",
+        "password": "1234",
+        "role": "user"
+    },
+    "ferrari@ferrari.com": {
+        "username": "Ferrari",
+        "password": "1234",
+        "role": "user"
+    }
+}
