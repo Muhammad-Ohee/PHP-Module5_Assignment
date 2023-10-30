@@ -1,11 +1,6 @@
 <?php
 session_start();
 
-// if(isset($_SESSION['email'])){
-//     header('Location: users.php');
-// }
-
-
 $usersFile = 'users.json';
 
 $users = json_decode( file_get_contents( $usersFile ), true );
